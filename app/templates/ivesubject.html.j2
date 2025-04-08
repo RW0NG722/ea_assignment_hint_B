@@ -1,0 +1,10 @@
+{% extends "base.html.j2" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+  <h1>{{ _('Subject1') }}: {{ current_user.subject1 }}</h1>
+  <h1>{{ _('Subject2') }}: {{ current_user.subject2 }}</h1>
+  <h1>{{ _('Subject3') }}: {{ current_user.subject3 }}</h1>
+  <div class="row">
+    <div class="col-md-4">{{ wtf.quick_form(form) }}</div>
+  </div>
+{% endblock %}
