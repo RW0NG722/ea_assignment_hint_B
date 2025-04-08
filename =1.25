@@ -1,4 +1,4 @@
-Eefaulting to user installation because normal site-packages is not writeable
+Defaulting to user installation because normal site-packages is not writeable
 Requirement already satisfied: djlint in /usr/local/lib/python3.11/site-packages (1.19.7)
 Collecting djlint
   Downloading djlint-1.36.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (407 kB)
