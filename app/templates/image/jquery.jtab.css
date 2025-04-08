@@ -1,0 +1,93 @@
+.jtab-next-horizontal {
+    position: absolute;
+    top: 12px;
+    right: 0px;
+    width: 5px;
+    height: 9px;
+    cursor: pointer;
+    background: transparent url('/uploads/ive/images/arr_right_slideshow_dp.gif') no-repeat 0 0px;
+}
+
+.jtab-next-horizontal:hover {
+    background-position: -5px 0px;
+}
+
+.jtab-next-horizontal:active {
+    background-position: -10px 0px;
+}
+
+.jtab-next-disabled-horizontal,
+.jtab-next-disabled-horizontal:hover,
+.jtab-skin-ie7 jtab-next-disabled-horizontal:active {
+    cursor: default;
+    background-position: -15px 0px;
+}
+
+.jtab-prev-horizontal {
+    position: absolute; margin-left:4px;
+    top: 12px;
+    left: 0px;
+    width: 5px;
+    height: 9px;
+    cursor: pointer;
+    background: url("/uploads/ive/images/arr_left_slideshow_dp.gif") no-repeat scroll 0 0px transparent;
+}
+
+.jtab-prev-horizontal:hover {
+    background-position: -5px 0px;
+}
+
+.jtab-prev-horizontal:active {
+    background-position: -10px 0px;
+}
+
+.jtab-prev-disabled-horizontal,
+.jtab-prev-disabled-horizontal:hover,
+.jtab-prev-disabled-horizontal:active {
+    cursor: default;
+    background-position: -15px 0px;
+}
+
+
+.jtab-container {
+    position: relative;
+}
+
+.jtab-container-horizontal {
+    width: 730px; max-height:64px;
+    padding: 0px 10px 0px 15px;
+}
+
+.jtab-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.jtab-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.jtab-list li,
+.jtab-item {
+    float: left;_float: none; display:inline;
+    list-style: none;
+}
+.jtab-next {
+    z-index: 3;
+    display: none;
+}
+
+.jtab-prev {
+    z-index: 3;
+    display: none;
+}

@@ -1,0 +1,143 @@
+var API_URL_SPECIAL_ANNOUNCE = {
+	"en": '/uploads/API/special_announment/special_announment_en.json',
+	"tc": '/uploads/API/special_announment/special_announment_tc.json',
+	"sc": '/uploads/API/special_announment/special_announment_sc.json',
+};
+var POPUP_CLOSE_LBL = {
+	"en": "close",
+	"tc": "關閉",
+	"sc": "关闭"
+}
+
+var VALIDATE_MAPPING = "IVE";
+
+$(document).ready(function(){
+	
+	applySpecialAnnounceAPI('#spcAnnounceContent');
+	
+	//Script for auto popup special announcement
+	if ($('#spcAnnounce').find('.titleA').length) {
+		
+		window.onload = function() {
+			Shadowbox.open({
+				content:    $('#spcAnnounce').html(),
+				player:     "html",
+				title:      $('#special_announcement img').attr("alt"),
+				height:     440,
+				width:      900
+			});
+		};
+		$('#special_announcement').removeClass("hidden");
+		
+		$('#spcAnnounce').prepend('<button class="btn-close" aria-label="'+POPUP_CLOSE_LBL[getCurrentLang()]+'" onclick="Shadowbox.close()"></button>');
+		
+	}
+	
+});
+
+
+function applySpecialAnnounceAPI(ele_selector) {
+	var data = getSpecialAnnounceAPI();
+	if ( data==null || typeof(data.SpecialAnnouncements) == 'undefined') {
+		return;
+	}
+	var html_text = tplSpecialAnnounce(data.SpecialAnnouncements);
+	$(ele_selector).append(html_text);
+}
+
+function getSpecialAnnounceAPI() {
+	var lang = getCurrentLang();
+	var api_url = API_URL_SPECIAL_ANNOUNCE[lang];
+	var output = '';
+	
+	$.ajax({
+		url: api_url,
+		async: false,
+		type: 'GET',
+		cache: false,
+		success:function(data) {
+			output = data
+		}
+	})
+	
+	return output;
+}
+function tplSpecialAnnounce(datas) {
+	var txt = '';
+	for (var i=0; i<datas.length; i++) {
+		var d = datas[i];
+		
+		var start_date = toDateObj(d.ActiveDate);
+		var end_date = toDateObj(d.ExpiryDate);
+		var current_date = new Date();
+		
+		var valid = false;
+		
+		if (start_date.getTime() < current_date.getTime() && current_date.getTime() < end_date.getTime() && $.inArray(VALIDATE_MAPPING, d.Distribution)!=-1) {		
+			valid = true;
+		}
+		
+		if (valid) {
+			txt += tplAnnounce(d);
+		}
+	}
+	
+	return txt;
+}
+function tplAnnounce(d) {
+	txt = '';
+	txt += '<div  class="specAnn specAnnAPI">';
+	txt += '<div class="titleA"><span>' + d.Title + '</span></div>';
+	txt += '<div class="date"><span>' + dateformater(d.PublishDate) + '</span></div>';
+	txt += '<div class="contentS">';
+	txt += '<span class="subtitle">'+ d['Sub-Title'] +'</span>'
+	txt += '<div class="announDetail">' + d.Description + '</div>';
+	txt += '</div>';
+	txt += '</div>';
+	return txt;
+}
+
+function dateformater(source) {
+	/* var str = source.replace(/^(\d{4}-\d{2}-\d{2}).*$/, "$1");
+	var date_arr = str.split('-'); */
+	var date_arr = toDateStr(source);
+	
+	var lang = getCurrentLang();
+	if (lang=='en') {
+		var months_arr = ['January','February',  'March',  'April',  'May',  'June',  'July',  'August',  'September',  'October',  'November',  'December'];
+		return date_arr[2] + " " + months_arr[date_arr[1]-1] + ' ' + date_arr[0];
+	}
+	else {
+		return date_arr[0] + "年" + date_arr[1] + "月" + date_arr[2] + "日";
+	}
+}
+
+function toDateStr(source) {
+	var str = source.replace(/^(\d{4}-\d{2}-\d{2}).*$/, "$1");
+	var date_arr = str.split('-');
+	
+	return date_arr;
+}
+
+function toDateObj(source) {
+	var date_arr = toDateStr(source);
+	var output = new Date();
+	output.setYear(output.getFullYear()+1);
+	if (date_arr.length>=3) {
+		output = new Date(date_arr[0], date_arr[1]-1, date_arr[2]);
+	}
+	return output;
+}
+
+function getCurrentLang() {
+	var ele = $('body');
+	if (ele.hasClass('tc')) {
+		return 'tc';
+	}
+	else if (ele.hasClass('sc')) {
+		return 'sc';
+	}
+	else  {
+		return 'en';
+	}
+}

@@ -1,0 +1,61 @@
+#homeSlider {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+  border-radius: 4px;
+}
+
+#homeSlider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+  list-style: none;
+}
+
+#homeSlider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 569px;
+  height: 485px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+#homeSlider ul li img {
+  width: 569px;
+  height: 485px;
+}
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 45%;
+  z-index: 999;
+  display: none;
+  text-decoration: none;
+  cursor: pointer;
+  background: url(../../images/white_arrow.png) no-repeat;
+  width: 22px;
+  height: 33px;
+}
+a.control_prev {
+  left:5px;
+  background-position: left top;
+}
+a.control_next {
+  right:5px;
+  background-position: right top;
+}
+a.control_prev:hover, a.control_next:hover {
+  opacity: 0.5;
+  -webkit-transition: all 0.2s ease;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 160px;
+  font-size: 18px;
+}

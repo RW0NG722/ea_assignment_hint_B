@@ -1,0 +1,532 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tableTopBgGary { background-repeat:no-repeat;background-image: url(/uploads/ive/images/whats_new_box_top.gif);}
+.tableTopBgBlue2 { background-repeat:no-repeat;background-image: url(/uploads/ive/images/press_release_top.gif);}
+.tableTopBgBlue3 { background-repeat:no-repeat;background-image: url(/uploads/ive/images/campus_offices_top.gif);}
+.tableBtLineGary { border-bottom:#6e6e6e solid 3px; }
+.tableTopBgGary h3 { color:#00829b; padding-top:5px; font-size:110%;}
+.tableSubBgGary { background-repeat:repeat-y; background-image: url(/uploads/ive/images/whats_new_box_bg.gif);}
+.tableSubBgGary2 { background-color:#f6f6f6;}
+.tableTopBgBlue { background-repeat:no-repeat;background-image: url(/uploads/ive/images/upcoming_event_box_top.gif);}
+.tableTopBgBlue h3,.tableTopBgBlue2 h3 { color:#00829b; padding-top:5px; font-size:110%;}
+.tableBtLine { border-bottom:#00b1d5 solid 3px; }
+.tableSubBg { background-repeat:repeat-x; background-image: url(/uploads/ive/images/upcoming_event_box_bg.gif);}
+.tableSubTitle { font-size:90%; font-weight: bold;}
+.tableContent {	font-size:90%;	line-height: 140%;}
+.tableContent h4 {	color:#00829b;	font-size:100%;	font-weight: bold;}
+.tableBgColorGary { background-color:#f4f4f4; }
+.paddingH { padding-left:5px;padding-right:5px;}
+.paddingH10 { padding-left:10px;padding-right:10px;}
+.paddingH15 { padding-left:15px;padding-right:15px; /*padding-top:32px;*/}
+.paddingV { padding-top:3px; padding-bottom:3px;}
+.paddingV8 { padding-top:8px; padding-bottom:8px;}
+.paddingT { padding-top:5px;}
+.paddingT10 { padding-top:10px;}
+.paddingL10 {padding-left:10px; }
+.paddingB10 {padding-bottom:10px; }
+.paddingR10 {padding-right:10px; }
+
+.tab { font-size:12px; color:#00829b; margin-top:0px; position:relative; margin-bottom:10px;}
+.jtab-skin-ivetabs{margin-bottom:10px;}
+.tab ul { padding:0px; margin:0px; }
+.tab li {display:inline-block; /*height:64px;*/ font-size:12px; float:left; position:relative;}
+.tab .current {	background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top left;font-weight:bold; font-size:12px; padding:0px; margin:0px;}
+.tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:12px; padding:0px; margin:0px;}
+.tab img {vertical-align:middle;}
+.tab a {	color:#676767;	text-decoration:none;}
+.tab a:hover {color:#00829b;}
+.tab .firstTab{padding-left:15px;}
+
+.tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.tab .subTab li.firstTab {padding-left:15px;}*/
+.tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#00829b; font-weight:bold; font-size:11px; padding:0;}
+.tab .subTab li {color:#00829b; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.tab .subTab a,.tab .subTab a:hover { text-decoration:none; color:#00829b;}
+
+div.hr {  height: 10px;  background:url(/uploads/ive/images/hr2.gif) repeat-x scroll center; margin-left:5px; margin-right:5px;}
+div.hr hr {  display: none;}
+.listDot {margin-bottom:8px;}
+
+/* Found dip*/
+.foundation .tableBtLine { border-bottom:#766149 solid 3px;}
+.foundation .td1{ background:#E0D8D0;}
+.foundation .td2{ background:#C2B3A3;}
+
+/* Disciplines Programmes - Business Administration Style */
+.business .tableBtLine { border-bottom:#a32638 solid 3px;}
+.business .tab { font-size:11px; color:#a32638; margin-top:0px; }
+.business .tab a:hover {color:#a32638;}
+.patternBA{background-image:url(/uploads/ive/images/bg_top_menu_ba.jpg); background-repeat:no-repeat; width:760px;}
+.business #contentBox h1{color:#a32638;}
+.business h3{color:#a32638; font-size:110%;	line-height: 200%; padding-top:10px;}
+.business ul{}
+.business li{background:url(/uploads/ive/images/dot_ba.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.business p{	line-height: 180%;  padding-bottom:10px;}
+.business .dpButton{ background:url(/uploads/ive/images/button_set_ba.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.business .dpButton a{color:#a32638;font-size:12px; font-weight:bold;}
+.business .cal .dateDisplay td{text-align:center; color:#a32638;}
+.business .cal .dateBox td b{color:#a32638;}
+.business .cal .dateBox .txt_gray{color:#d1d1d1;}
+.business .cal .dateBox td b.exp{color:#fcd7dc;}
+.business .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_ba.gif) no-repeat center; color:white;}
+.business .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_ba.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.business .cal .dateBox thead td{background-color:#d35368; color:#2b2727; height:16px;}
+.business .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.business .tab .subTab { position:absolute; width:740px; left:0; top:32px; /*height:64px;*/ height:32px;}
+/*.business .tab .subTab li.firstTab {padding-left:15px;}*/
+.business .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#a32638; font-weight:bold; font-size:11px; padding:0;}
+.business .tab .subTab li {color:#a32638; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.business .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.business .tab .subTab a,.business .tab .subTab a:hover { text-decoration:none; color:#a32638;}
+.business .tab { margin-top:0px; position:relative;}
+.business .tab ul { }
+.business .tab li {display:inline-block;/*height:96px;*/ /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.business .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top left;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.business .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.business .tab img {vertical-align:middle;}
+.business .tab .firstTab{padding-left:15px;}
+.business .td1{ background:#fbf3f4;}
+.business .td2{ background:#f6e4e7;}
+
+.jtab-container-horizontal{height:32px;}
+/* Disciplines Programmes - Applied Science Style */
+.applied .tableBtLine { border-bottom:#006b3f solid 3px;}
+.applied .tab { font-size:11px; color:#006b3f; margin-top:0px; }
+.applied .tab a:hover {color:#006b3f;}
+.patternAS{background-image:url(/uploads/ive/images/bg_top_menu_as.jpg); background-repeat:no-repeat; width:760px;}
+.applied #contentBox h1{color:#006b3f;}
+.applied h3{color:#006b3f; font-size:110%;	line-height: 200%; padding-top:10px;}
+.applied ul{}
+.applied li{background:url(/uploads/ive/images/dot_as.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.applied p{	line-height: 180%;  padding-bottom:10px;}
+.applied .dpButton{ background:url(/uploads/ive/images/button_set_as.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.applied .dpButton a{color:#006b3f;font-size:12px; font-weight:bold;}
+.applied .cal .dateDisplay td{text-align:center; color:#006b3f;}
+.applied .cal .dateBox td b{color:#006b3f;}
+.applied .cal .dateBox .txt_gray{color:#d1d1d1;}
+.applied .cal .dateBox td b.exp{color:#b3d3c6;}
+.applied .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_as.gif) no-repeat center; color:white;}
+.applied .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_as.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.applied .cal .dateBox thead td{background-color:#9cdec1; color:#2b2727; height:16px;}
+.applied .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.applied .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.applied .tab .subTab li.firstTab {padding-left:15px;}*/
+.applied .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#006b3f; font-weight:bold; font-size:11px; padding:0;}
+.applied .tab .subTab li {color:#006b3f; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.applied .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.applied .tab .subTab a,.applied .tab .subTab a:hover { text-decoration:none; color:#006b3f;}
+.applied .tab { margin-top:0px; position:relative;}
+.applied .tab ul { }
+.applied .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.applied .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0; margin:0px;}
+.applied .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.applied .tab img {vertical-align:middle;}
+.applied .tab .firstTab{padding-left:15px;}
+.applied .td1{ background:#f3fbf7;}
+.applied .td2{ background:#e4f6ec;}
+
+/* Disciplines Programmes - Child Eduction Style */
+.child .tableBtLine { border-bottom:#5f8739 solid 3px;}
+.child .tab { font-size:11px; color:#5f8739; margin-top:0px; }
+.child .tab a:hover {color:#5f8739;}
+.patternCC{background-image:url(/uploads/ive/images/bg_top_menu_cc.jpg); background-repeat:no-repeat; width:760px;}
+.child #contentBox h1{color:#5f8739;}
+.child h3{color:#5f8739; font-size:110%;	line-height: 200%; padding-top:10px;}
+.child ul{}
+.child li{background:url(/uploads/ive/images/dot_cc.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.child p{	line-height: 180%;  padding-bottom:10px;}
+.child .dpButton{ background:url(/uploads/ive/images/button_set_cc.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.child .dpButton a{color:#5f8739;font-size:12px; font-weight:bold;}
+.child .cal .dateDisplay td{text-align:center; color:#5f8739;}
+.child .cal .dateBox td b{color:#5f8739;}
+.child .cal .dateBox .txt_gray{color:#d1d1d1;}
+.child .cal .dateBox td b.exp{color:#cfdbc4;}
+.child .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_cc.gif) no-repeat center; color:white;}
+.child .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_cc.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.child .cal .dateBox thead td{background-color:#b0dc85; color:#2b2727; height:16px;}
+.child .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.child .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.child .tab .subTab li.firstTab {padding-left:15px;}*/
+.child .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#5f8739; font-weight:bold; font-size:11px; padding:0;}
+.child .tab .subTab li {color:#5f8739; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.child .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.child .tab .subTab a,.child .tab .subTab a:hover { text-decoration:none; color:#5f8739;}
+.child .tab { margin-top:0px; position:relative;}
+.child .tab ul { }
+.child .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.child .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.child .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.child .tab img {vertical-align:middle;}
+.child .tab .firstTab{padding-left:15px;}
+.child .td1{ background:#f7fbf3;}
+.child .td2{ background:#edf6e4;}
+
+/* Disciplines Programmes - Electrical Engineering Style */
+.engineering .tableBtLine { border-bottom:#9e7c0a solid 3px;}
+.engineering .tab { font-size:11px; color:#9e7c0a; margin-top:0px; }
+.engineering .tab a:hover {color:#9e7c0a;}
+.patternEN{background-image:url(/uploads/ive/images/bg_top_menu_en.jpg); background-repeat:no-repeat; width:760px;}
+.engineering #contentBox h1{color:#9e7c0a;}
+.engineering h3{color:#9e7c0a; font-size:110%;	line-height: 200%; padding-top:10px;}
+.engineering ul{}
+.engineering li{background:url(/uploads/ive/images/dot_en.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.engineering p{	line-height: 180%;  padding-bottom:10px;}
+.engineering .dpButton{ background:url(/uploads/ive/images/button_set_en.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.engineering .dpButton a{color:#9e7c0a;font-size:12px; font-weight:bold;}
+.engineering .cal .dateDisplay td{text-align:center; color:#9e7c0a;}
+.engineering .cal .dateBox td b{color:#9e7c0a;}
+.engineering .cal .dateBox .txt_gray{color:#d1d1d1;}
+.engineering .cal .dateBox td b.exp{color:#cfdbc4;}
+.engineering .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_en.gif) no-repeat center; color:white;}
+.engineering .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_en.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.engineering .cal .dateBox thead td{background-color:#f5ae38; color:#2b2727; height:16px;}
+.engineering .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.engineering .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.engineering .tab .subTab li.firstTab {padding-left:15px;}*/
+.engineering .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#9e7c0a; font-weight:bold; font-size:11px; padding:0;}
+.engineering .tab .subTab li {color:#9e7c0a; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.engineering .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.engineering .tab .subTab a,.engineering .tab .subTab a:hover { text-decoration:none; color:#9e7c0a;}
+.engineering .tab { margin-top:0px; position:relative;}
+.engineering .tab ul { }
+.engineering .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.engineering .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.engineering .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.engineering .tab img {vertical-align:middle;}
+.engineering .tab .firstTab{padding-left:15px;}
+.engineering .td1{ background:#fbf8f3;}
+.engineering .td2{ background:#f6efe4;}
+
+/* Disciplines Programmes - Hotel Service Style */
+.hotel .tableBtLine { border-bottom:#848205 solid 3px;}
+.hotel .tab { font-size:11px; color:#848205; margin-top:0px; }
+.hotel .tab a:hover {color:#848205;}
+.patternHS{background-image:url(/uploads/ive/images/bg_top_menu_hs.jpg); background-repeat:no-repeat; width:760px;}
+.hotel #contentBox h1{color:#848205;}
+.hotel h3{color:#848205; font-size:110%;	line-height: 200%; padding-top:10px;}
+.hotel ul{}
+.hotel li{background:url(/uploads/ive/images/dot_hs.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.hotel p{	line-height: 180%;  padding-bottom:10px;}
+.hotel .dpButton{ background:url(/uploads/ive/images/button_set_hs.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.hotel .dpButton a{color:#848205;font-size:12px; font-weight:bold;}
+.hotel .cal .dateDisplay td{text-align:center; color:#848205;}
+.hotel .cal .dateBox td b{color:#848205;}
+.hotel .cal .dateBox .txt_gray{color:#d1d1d1;}
+.hotel .cal .dateBox td b.exp{color:#d4cdb6;}
+.hotel .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_hs.gif) no-repeat center; color:white;}
+.hotel .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_hs.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.hotel .cal .dateBox thead td{background-color:#d6e942; color:#2b2727; height:16px;}
+.hotel .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.hotel .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.hotel .tab .subTab li.firstTab {padding-left:15px;}*/
+.hotel .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#848205; font-weight:bold; font-size:11px; padding:0;}
+.hotel .tab .subTab li {color:#848205; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.hotel .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.hotel .tab .subTab a,.hotel .tab .subTab a:hover { text-decoration:none; color:#848205;}
+.hotel .tab { margin-top:0px; position:relative;}
+.hotel .tab ul { }
+.hotel .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.hotel .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.hotel .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.hotel .tab img {vertical-align:middle;}
+.hotel .tab .firstTab{padding-left:15px;}
+.hotel .td1{ background:#fafbf3;}
+.hotel .td2{ background:#f4f6e4;}
+
+
+/* Disciplines Programmes - Information Technology Style */
+.information .tableBtLine { border-bottom:#777263 solid 3px;}
+.information .tab { font-size:11px; color:#777263; margin-top:0px; }
+.information .tab a:hover {color:#777263;}
+.patternIT{background-image:url(/uploads/ive/images/bg_top_menu_it.jpg); background-repeat:no-repeat; width:760px;}
+.information #contentBox h1{color:#777263;}
+.information h3{color:#777263; font-size:110%;	line-height: 200%; padding-top:10px;}
+.information ul{}
+.information li{background:url(/uploads/ive/images/dot_it.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.information p{	line-height: 180%;  padding-bottom:10px;}
+.information .dpButton{ background:url(/uploads/ive/images/button_set_it.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.information .dpButton a{color:#777263;font-size:12px; font-weight:bold;}
+.information .cal .dateDisplay td{text-align:center; color:#777263;}
+.information .cal .dateBox td b{color:#777263;}
+.information .cal .dateBox .txt_gray{color:#d1d1d1;}
+.information .cal .dateBox td b.exp{color:#d6d5d1;}
+.information .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_it.gif) no-repeat center; color:white;}
+.information .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_it.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.information .cal .dateBox thead td{background-color:#c9c4b6; color:#2b2727; height:16px;}
+.information .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.information .tab .subTab { position:absolute; width:740px; left:0; top:32px; /*height:64px;*/ height:32px;}
+/*.information .tab .subTab li.firstTab {padding-left:15px;}*/
+.information .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#777263; font-weight:bold; font-size:11px; padding:0;}
+.information .tab .subTab li {color:#777263; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.information .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.information .tab .subTab a,.information .tab .subTab a:hover { text-decoration:none; color:#777263;}
+.information .tab { margin-top:0px; position:relative;}
+.information .tab ul { }
+.information .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.information .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.information .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.information .tab img {vertical-align:middle;}
+.information .tab .firstTab{padding-left:15px;}
+.information .td1{ background:#f9f9f5;}
+.information .td2{ background:#f1f2e8;}
+
+
+/* Disciplines Programmes - Languages Style */
+.languages .tableBtLine { border-bottom:#7E003A solid 3px;}
+.languages .tab { font-size:11px; color:#7E003A; margin-top:0px; }
+.languages .tab a:hover {color:#7E003A;}
+.patternLA{background-image:url(/uploads/ive/images/bg_top_menu_la.jpg); background-repeat:no-repeat; width:760px;}
+.languages #contentBox h1{color:#7E003A;}
+.languages h3{color:#7E003A; font-size:110%;	line-height: 200%; padding-top:10px;}
+.languages ul{}
+.languages li{background:url(/uploads/ive/images/dot_la.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.languages p{	line-height: 180%;  padding-bottom:10px;}
+.languages .dpButton{ background:url(/uploads/ive/images/button_set_la.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.languages .dpButton a{color:#7E003A;font-size:12px; font-weight:bold;}
+.languages .cal .dateDisplay td{text-align:center; color:#7E003A;}
+.languages .cal .dateBox td b{color:#7E003A;}
+.languages .cal .dateBox .txt_gray{color:#d1d1d1;}
+.languages .cal .dateBox td b.exp{color:#f4d0e0;}
+.languages .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_la.gif) no-repeat center; color:white;}
+.languages .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date_la.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.languages .cal .dateBox thead td{background-color:#f774b2; color:#2b2727; height:16px;}
+.languages .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.languages .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.languages .tab .subTab li.firstTab {padding-left:15px;}*/
+.languages .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#7E003A; font-weight:bold; font-size:11px; padding:0;}
+.languages .tab .subTab li {color:#7E003A; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.languages .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.languages .tab .subTab a,.languages .tab .subTab a:hover { text-decoration:none; color:#7E003A;}
+.languages .tab { margin-top:0px; position:relative;}
+.languages .tab ul { }
+.languages .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.languages .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.languages .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.languages .tab img {vertical-align:middle;}
+.languages .tab .firstTab{padding-left:15px;}
+.languages .td1{ background:#f3f9fb;}
+.languages .td2{ background:#e4f0f6;}
+
+
+/* Disciplines Programmes - Structured Whole Person Development Style */
+.structured .tableBtLine { border-bottom:#00adc6 solid 3px;}
+.structured .tab { font-size:11px; color:#00adc6; margin-top:0px; }
+.structured .tab a:hover {color:#00adc6;}
+.patternSW{background-image:url(/uploads/ive/images/section_pattern_01.jpg); background-repeat:no-repeat; width:760px;}
+.structured #contentBox h1{color:#00adc6;}
+.structured h3{color:#00adc6; font-size:110%;	line-height: 200%; padding-top:10px;}
+.structured ul{}
+.structured li{background:url(/uploads/ive/images/dot_sw.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.structured p{	line-height: 180%;  padding-bottom:10px;}
+.structured .dpButton{ background:url(/uploads/ive/images/button_set_sw.gif) no-repeat 0 0; width:94px; height:30px;padding-top:6px;text-align:center;}
+.structured .dpButton a{color:#00adc6;font-size:12px; font-weight:bold;}
+.structured .cal .dateDisplay td{text-align:center; color:#00adc6;}
+.structured .cal .dateBox td b{color:#00829b;}
+.structured .cal .dateBox .txt_gray{color:#d1d1d1;}
+.structured .cal .dateBox td b.exp{color:#b3d8e1;}
+.structured .cal .dateBox .today{background:url(/uploads/ive/images/cal/bg_today_blue.gif) no-repeat center; color:white;}
+.structured .cal .dateDisplay{width:189px; height:24px; background:url(/uploads/ive/images/cal/bg_front_top_date.gif) repeat-x 0 0; margin:0 auto; padding-top:2px;}
+.structured .cal .dateBox thead td{background-color:#8adcec
+; color:#2b2727; height:16px;}
+.structured .tableContent h4 { font-size:100%; font-weight: bold; color:#000;}
+.structured .tab .subTab { position:absolute; width:740px; left:0; top:32px; height:64px;}
+/*.structured .tab .subTab li.firstTab {padding-left:15px;}*/
+.structured .tab .subTab .current { background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; color:#00adc6; font-weight:bold; font-size:11px; padding:0;}
+.structured .tab .subTab li {color:#00adc6; font-size:11px; z-index:3; display:inline-block; height:32px;}
+.structured .tab .subTab .on {background:url(/uploads/ive/images/subtab_bg.gif) repeat-x; padding:0; margin:0px; font-weight:normal;}
+.structured .tab .subTab a,.structured .tab .subTab a:hover { text-decoration:none; color:#00adc6;}
+.structured .tab { margin-top:0px; position:relative;}
+.structured .tab ul { }
+.structured .tab li {display:inline-block; /*height:64px;*/ font-size:11px; float:left; position:relative;}
+.structured .tab .current { background:url(/uploads/ive/images/tab_highlight_bg.gif) repeat-x top;font-weight:bold; font-size:11px; padding:0px; margin:0px;}
+.structured .tab .on { background:url(/uploads/ive/images/tab_bg.gif) repeat-x top left;font-size:11px; padding:0px; margin:0px;}
+.structured .tab img {vertical-align:middle;}
+.structured .tab .firstTab{padding-left:15px;}
+.structured .td1{ background:#f3fafb;}
+.structured .td2{ background:#e4f3f6;}
+
+
+/* Campus */
+.campus ul{}
+.campus li{background:url(../../uploads/ive/images/dot_ive_bcolor.gif) no-repeat 0 4px; padding-left:18px; padding-bottom:5px;	line-height: 120%; }
+.campus a {	color:#00829b;font-size:100%; text-decoration:none;}
+
+.linkBlueB {color:#00829b; text-decoration:underline;}
+
+.BottomRightConer {right:0px;bottom:0px;}
+
+.blueStyle h3 {font-size:110%; font-weight:bold; color:#00b1d5;	line-height: 150%;}
+.blueStyle p {	font-size:100%;	line-height: 160%;}
+
+.blueStyleBcolor h3 {font-size:110%; font-weight:bold; color:#00829b;	line-height: 200%;}
+.blueStyleBcolor h4 {font-size:110%; font-weight:bold;	line-height: 200%; color:#00829b;}
+.blueStyleBcolor p {	font-size:100%;	line-height: 150%; padding-bottom:10px;}
+.blueStyleBcolor { margin: /*10px*/ 0 auto; /*0*/ }
+/*.blueStyleBcolor.inner { margin: 10px auto 0; /-*padding-top:35px;*-/}*/
+
+.input100 {
+	width:50px;
+	height:20px;
+	text-align: center;
+	border: 1px solid #999;
+	line-height: 20px;
+}
+.content12 { font-size:12px; }
+
+.lineHeight140 { line-height:150%;}
+.oval { text-align:center;}
+
+/* Front page Event */
+.sliderbutton { width:180px; padding:0px;}
+.sliderbutton img {cursor:pointer}
+#slider {float:left; position:relative; overflow:hidden; width:185px; height:40px; background:#fff ; font-size:90%; color:#000; background-color:#fff;}
+#slider ul {position:absolute; list-style:none; top:0; left:0;}
+#slider li {float:left; width:185px; height:36px; padding-right:0px; padding-left:5px;text-align:left;}
+
+.pagination {float:left; list-style:none; height:1px; margin:0;}
+.pagination li {float:left; cursor:pointer; padding:0; background:#666; border:0px solid #999; margin:0; color:#222}
+.pagination li:hover {background:#777; border:0px solid #bbb; color:#000}
+li.current {border:0px solid #ccc; background:#888}
+
+.contentSlide li {	width:180px;	height:36px;	padding:0;	margin-top: 0px;	margin-right: 0px;	margin-bottom: 0;	margin-left: 0px; }
+.contentSlide a { color:#000; text-decoration:none;}
+.contentSlide a:hover { color:#333; text-decoration:underline;}
+
+/* Slidershow and lightbox */
+#SliderPostion { background-color:#030;}
+
+
+/* slideshow size */
+#imageBorder162 {position:relative;z-index: 3;	height: 136px;	width: 177px;overflow: hidden;}
+#imageBorder162 img{position:absolute; left:7px; top:5px; z-index:0;}
+#imageBorder162 .mask{position:absolute; left:0; top:0; z-index:10;}
+
+
+/* press release size */
+#imageBorder130 {position:relative;z-index: 3;	height: 108px; width: 145px; overflow: hidden; border: 3px solid #ffffff; border-radius: 35px; margin-top: 5px; margin-bottom: 5px;}
+#imageBorder130 img {display:block; width: auto; height: 108px; position: relative; left: 50%; -webkit-transform: translateX(-50%); -ms-transform: translateX(-50%); transform: translateX(-50%);}
+
+/*#imageBorder130 img{position:absolute; left:7px; top:7px; z-index:0;}*/
+#imageBorder130 .mask{position:absolute; left:0; top:0; z-index:10;}
+
+#imageBorder130H {position:relative;z-index: 3;	height: 145px;	width: 112px;overflow: hidden;}
+#imageBorder130H img{position:absolute; left:7px; top:7px; z-index:0;}
+#imageBorder130H .mask{position:absolute; left:0; top:0; z-index:10;}
+
+
+/* whats new size */
+#imageBorder214 {position:relative;z-index: 3;	height: 177px;	width: 230px;overflow: hidden;}
+#imageBorder214 img{position:absolute; left:9px; top:9px; z-index:0;}
+#imageBorder214 .mask{position:absolute; left:0; top:0; z-index:10;}
+
+#imageBorder214H {position:relative;z-index: 3;	height: 230px;	width: 177px;overflow: hidden;}
+#imageBorder214H img{position:absolute; left:9px; top:9px; z-index:0;}
+#imageBorder214H .mask{position:absolute; left:0; top:0; z-index:10;}
+
+/* content page size */
+#imageBorder214w {position:relative;z-index: 3;	height: 177px;	width: 230px;overflow: hidden;}
+#imageBorder214w img{position:absolute; left:9px; top:10px; z-index:0;}
+#imageBorder214w .mask{position:absolute; left:0; top:0; z-index:10;}
+.imageBorder214w {position:relative;z-index: 3;	height: 177px;	width: 230px;overflow: hidden;}
+.imageBorder214w img{position:absolute; left:9px; top:10px; z-index:0;}
+.imageBorder214w .mask{position:absolute; left:0; top:0; z-index:10;}
+
+#imageBorder214wH {position:relative;z-index: 3;	height: 230px;	width: 177px;overflow: hidden;}
+#imageBorder214wH img{position:absolute; left:9px; top:10px; z-index:0;}
+#imageBorder214wH .mask{position:absolute; left:0; top:0; z-index:10;}
+
+/* press detail size */
+#imageBorder242w {position:relative;z-index: 3;	height: 202px;	width: 263px;overflow: hidden;}
+#imageBorder242w img{position:absolute; left:10px; top:10px; z-index:0;}
+#imageBorder242w .mask{position:absolute; left:0; top:0; z-index:10;}
+
+/*ron special region*/
+.RonUnselect{ background:white; border-top:1px #CCCCCC solid;}
+
+/*weatherTable*/
+.weatherTable td{ border:#d3d3d3 1px solid; padding:7px 8px;}
+.weatherTable thead td{ font-weight:bold; color:#000000; background:#f8f8f8;}
+.weatherTable tr.even td{background:#f8f8f8;}
+.weatherTable tr.even td.darkerGrey, .weatherTable tr td.darkerGrey{background:#eeeeee;}
+
+/* ive event detail page (copy from corp site) */
+td.titleLeft{width:120px;padding:5px 0px 0px 0px; font-weight:bold; }
+td.contentRight{ padding:5px 0px;}
+
+
+/*special ann old*/
+/* .specAnn{height:560px; width:841px;}
+.front #sb-body-inner #sb-player.html{overflow:hidden;}
+.specAnn .titleA{ height:51px; background: url(/uploads/ive/images/front/img_special_annou.gif) top left no-repeat; padding:0px 15px 0 15px; text-align:left; position:relative;}
+.specAnn .titleA span{ font-size:16px; position:absolute; top:13px; font-weight:bold;}
+.specAnn .contentS{background:#e96910; padding:5px 5px 0px 5px; color:#FFFFFF; text-align:left;}
+.specAnn .contentS span{ font-size:14px; padding:5px 5px 8px 15px; font-weight:bold; display:block;}
+.announDetail{ background:#FFFFFF;  height:275px; overflow: scroll; color:#000000; padding:20px 15px; overflow-x:hidden;}
+.btnSpc{height:5px; background:url(/uploads/ive/images/front/img_special_annouBtm.gif) bottom left no-repeat;} */
+/*special ann*/
+.front #sb-player {background: #fff; background-color#fff; padding:20px; padding-top:20px;  border: 5px solid #019ade; font-size:16px; max-height:370px}
+#spcAnnounceContent {overflow: scroll;overflow-x:hidden; text-align:left;height:370px;font-family:Arial,"Microsoft JhengHei","微軟正黑體",sans-serif}
+.specAnn{padding-bottom:35px;}
+.front #sb-body-inner #sb-player.html{overflow:hidden;}
+.specAnn .titleA {font-weight: bold; display: inline-block; width: 100%; text-align: center; color: #001f57; margin-bottom: 0;margin-top: 35px;font-size:24px; text-transform:uppercase} 
+.specAnn:first-child .titleA{margin-top:0px}
+.specAnn .contentS .subtitle { font-size:24px; margin-top:5px ;font-weight:normal; display:block;}
+.specAnn .date {display: inline-block;    color: #666;    width: 100%;    margin-top: 20px;}
+.specAnnAPI .contentS p {margin-top: 20px;}
+ .btn-close {	right: 17px;    top: 15px;    width: 25px;    height: 25px;    z-index: 500;position: absolute; background: transparent;text-decoration: none; outline: 0;    border: 0; cursor: pointer;    padding: 0;}
+ .btn-close::before, .btn-close::after {    width: 25px;	background-color: #333;	content: '';    display: inline-block;    height: 2px;    position: absolute;    top: 50%;    left: 0;}
+ .btn-close::before {    -webkit-transform: rotate(45deg);    -moz-transform: rotate(45deg);    -o-transform: rotate(45deg);    -ms-transform: rotate(45deg);    transform: rotate(45deg);}
+ .btn-close::after {    -webkit-transform: rotate(-45deg);    -moz-transform: rotate(-45deg);    -o-transform: rotate(-45deg);    -ms-transform: rotate(-45deg);    transform: rotate(-45deg);}
+
+
+
+/*for API special annount table*/
+.sp-tb{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.sp-tb .col-title.single {
+    width: 40%;
+}
+.sp-tb thead td, .sp-tb thead th{
+	border-bottom: 3px solid #333;
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.sp-tb tbody tr:first-child td, .sp-tb tbody tr:first-child th {
+    border-top: 0;
+}
+.sp-tb tbody td, .sp-tb tbody th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #ccc;
+    padding-right: 10px;
+}
+.font-clr.blue {
+    color: #0079d0;
+}
+
+/* front page right side banner */
+#imageBorder193 {position:relative;z-index: 3;	height: 165px;	width: 193px; overflow: hidden;}
+#imageBorder193 img{/*position:absolute;*/ left:9px; top:9px; z-index:0;}
+#imageBorder193 .mask{position:absolute; left:0; top:0; z-index:10;}
+#imageBorder193b {position:relative;z-index: 3;	height: 80px;	width: 193px; overflow: hidden;}
+#imageBorder193b img{/*position:absolute;*/ left:9px; top:9px; z-index:0;}
+#imageBorder193b .mask{position:absolute; left:0; top:0; z-index:10;}
+
+/*press box by justine20110610*/
+.pressbox{ margin-bottom:15px;}
+
+/*kanhan id=136 (IT parttime) not show accepting entry*/
+.ive_course_136 .acceptApplyYear {display:none}
+
+.hide { display: none !important; }
+
+/*kanhan for textonly version*/
+.txt .child .tab .subTab {
+	top: 15px;
+}

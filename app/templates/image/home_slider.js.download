@@ -1,0 +1,90 @@
+jQuery(document).ready(function ($) {
+
+  var slideCount = $('#homeSlider ul li').length;
+  var slideWidth = $('#homeSlider ul li').width();
+  var slideHeight = $('#homeSlider ul li').height();
+  var sliderUlWidth = slideCount * slideWidth;
+  var timeout = null;
+
+    function init(){
+      checkSliderLength(); 
+
+    };
+
+    function hideArrows(){
+      $('a.control_prev').hide();
+      $('a.control_next').hide();
+    };
+
+    function showArrows(){
+      $('a.control_prev').show();
+      $('a.control_next').show();
+    };
+
+    function twoSlidesDuplicate(){
+        var ul = $('#homeSlider ul');
+        ul.find('li:first').clone(true).appendTo(ul);
+        ul.find('li:nth-child(2)').clone(true).appendTo(ul);
+    }
+
+    function checkSliderLength(){
+      if(slideCount===1){
+        console.log(slideCount, "ITS ONE")
+      }else if(slideCount===2) {
+        twoSlidesDuplicate();
+        slideCount = $('#homeSlider ul li').length;
+        slideWidth = $('#homeSlider ul li').width();
+        slideHeight = $('#homeSlider ul li').height();
+        sliderUlWidth = slideCount * slideWidth;
+        timeout = null;
+        showArrows();
+        $('#homeSlider').css({ width: slideWidth, height: slideHeight });
+        $('#homeSlider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+        autoPlay();
+      }else{
+        showArrows();
+        $('#homeSlider').css({ width: slideWidth, height: slideHeight });
+        $('#homeSlider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+        $('#homeSlider ul li:last-child').prependTo('#homeSlider ul');
+        autoPlay()
+      }; 
+    };
+
+    function autoPlay(){
+      clearTimeout(timeout);
+      timeout = setTimeout(function(){
+        moveRight();
+      }, 5000);
+    };
+
+    function moveLeft() {
+        $('#homeSlider ul').animate({
+            left: + slideWidth
+        }, 300, function () {
+            $('#homeSlider ul li:last-child').prependTo('#homeSlider ul');
+            $('#homeSlider ul').css('left', '');
+        });
+        autoPlay();
+    };
+
+    function moveRight() {
+        $('#homeSlider ul').animate({
+            left: - slideWidth
+        }, 300, function () {
+            $('#homeSlider ul li:first-child').appendTo('#homeSlider ul');
+            $('#homeSlider ul').css('left', '');
+        });
+        autoPlay();
+    };
+
+    $('a.control_prev').click(function () {
+        moveLeft();
+    });
+
+    $('a.control_next').click(function () {
+        moveRight();
+    });
+
+    init();
+
+});    

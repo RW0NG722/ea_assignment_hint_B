@@ -1,0 +1,465 @@
+$(document).ready(function() {
+	var d = new Date();
+	var yr = d.getFullYear();
+	var n = d.getMonth();
+	var dd = d.getDate();
+	$('#curMonth').val(n);
+	$('#curYear').val(yr);
+	drawCalendar(yr,n);
+	if($('#eventDates').val() != ""){
+		var eds = $('#eventDates').val().split('||');
+		var p = eds[0].split(',');
+		var smallest = new Date(p[0], p[1], p[2], 0, 0, 0, 0);
+		var tempdate;
+		for (var x=1; x<eds.length;x++ )
+		{
+			p = eds[x].split(',');
+			tempdate = new Date(p[0], p[1], p[2], 0, 0, 0, 0);
+			if (tempdate < smallest)
+			{
+				smallest = new Date(p[0], p[1], p[2], 0, 0, 0, 0);
+			}
+		}
+		d = new Date(yr, n, dd, 0,0,0,0);
+		if(smallest <= d){
+			setScrollFrame('');
+		}else{
+			setScrollFrame(smallest.getFullYear()+'-'+(parseInt(smallest.getMonth())+1)+'-'+smallest.getDate());
+		}
+	}else{
+		setScrollFrame(yr+'-'+(parseInt(n)+1)+'-'+d.getDate());
+	}
+
+	// set Event's more link
+	$('#moreEvent').click(function() {
+		if($('#subs').val() == 1){
+			window.location.href='../aboutive/ive_events_campus.html#subsid'+$('#subsid').val();
+		}else{
+			window.location.href='../aboutive/ive_events_discipline.html#subsid'+$('#subsid').val();
+		}
+	});
+});
+
+function setScrollFrame(cd){
+	if (cd=='')
+	{
+		var d = new Date();
+		var mm = parseInt(d.getMonth())+1;
+		var dd = d.getDate();
+		if (parseInt(mm) < 10) mm = '0'+mm;
+		if (parseInt(dd) < 10) dd = '0'+dd;
+		cd = d.getFullYear() + '-' + mm + '-' + dd;
+	}
+	$('.eventBox iframe').attr({src: '../eventsScroller.php?subs=0&subsid='+$('#subsid').val()+'&d='+cd+'&lang='+$('#pageLang').val()});
+	//$('.eventBox iframe').attr('src','../../eventsScroller.php?subs='+$('#subs').val()+'&subsid='+$('#subsid').val()+'&d='+cd+'&lang='+$('#pageLang').val());
+	//$('.eventBox iframe').attr({src: $(this).attr("src")});
+}
+
+function calPrevMonth(){
+	var yr = $('#curYear').val();
+	var n = $('#curMonth').val();
+	var pn=n-1;
+	var pyr=yr;
+	if (pn<0)
+	{
+		pn=11;
+		pyr=yr-1;
+	}
+	$('#curMonth').val(pn);
+	$('#curYear').val(pyr);
+	drawCalendar(pyr,pn);
+}
+
+function calNextMonth(){
+	var yr = $('#curYear').val();
+	var n = $('#curMonth').val();
+	var nn=parseInt(n)+1;
+	var nyr=yr;
+	if (nn>11)
+	{
+		nn=0;
+		nyr=parseInt(yr)+1;
+	}
+	$('#curMonth').val(nn);
+	$('#curYear').val(nyr);
+	drawCalendar(nyr,nn);
+}	
+
+function checkDateRange(d, pairs){
+	var len = pairs.length;
+	var p, sd, ed;
+	var startDate = new Date();
+	var endDate = new Date();
+	d = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 0, 0, 0, 0);
+	if(pairs!=''){
+		for (var i=0; i<len; i++)
+		{
+			p = pairs[i].split('-');
+			sd = p[0];
+			ed = p[1];
+			
+			sd = sd.split(',');
+			
+			ed = ed.split(',');
+			startDate = new Date(sd[0], sd[1], sd[2], 0, 0, 0, 0);
+			endDate= new Date(ed[0], ed[1], ed[2], ed[3], ed[4], 20, 0);
+			if (d>=startDate && d<=endDate)
+			{
+				return true;
+				break;
+			}
+		}
+	}
+	return false;
+}
+
+function checkDateRange_PrevMonth(c, pairs){ 	// 20110125 add by Justine to detect event day after today/within today BUT before display month [+]
+	var len = pairs.length;
+	var p, sd, ed;
+	var startDate = new Date();
+	var endDate = new Date();
+
+
+	var cYear = c.getFullYear(); //Month and Year of current display calendar
+	var cMonth = c.getMonth();
+	c =	new Date(cYear, cMonth, 1, 0, 0, 0, 0);	
+
+	t = new Date();
+	//t = new Date(2011,1,1);
+	var tYear = t.getFullYear(); //Month and Year of today
+	var tMonth = t.getMonth();	
+	if(pairs!=''){
+		for (var i=0; i<len; i++)
+		{
+			p = pairs[i].split('-');
+			sd = p[0];
+			ed = p[1];
+			
+			sd = sd.split(',');			
+			ed = ed.split(',');
+			startDate = new Date(sd[0], sd[1], sd[2], 0, 0, 0, 0);
+			endDate= new Date(ed[0], ed[1], ed[2], ed[3], ed[4], 20, 0);
+
+
+			//if (t>=startDate && t<=endDate)
+			if (t<=endDate && (cYear>tYear || (cYear==tYear && cMonth>tMonth)) && (c>startDate))
+			{
+				return true;
+				break;
+			}
+		}
+	}
+	return false;
+}
+
+function drawCalendar(yr,n){
+	var d = new Date();
+	var days = daysInMonth(n,yr);
+	var cDate = new Date();
+	//d = new Date(2011,1,1);
+	//cDate = new Date(2011,1,1);
+
+	cDate.setFullYear(yr,n,1);
+
+	// Previous Month
+	var pn=n-1;
+	var pyr=yr;
+	if (pn<0)
+	{
+		pn=11;
+		pyr=yr-1;
+	}
+	var pdays = daysInMonth(pn,pyr);
+
+	// Next Month
+	var nn=parseInt(n)+1;
+	var nyr=yr;
+	if (nn>11)
+	{
+		nn=0;
+		nyr=parseInt(yr)+1;
+	}
+	var ndays = 1;
+
+	// Set Month Name
+	eval("$('#calMonthName').html('<b>'+getShortMonthName"+$('#pageLang').val()+"("+yr+","+n+")+'</b>')");
+
+	// Assign days to the Calendar
+	var s = cDate.getDay()-1;	//s refers to the weekday of first days of month, ex. first day is Sat, then s=5
+	var curDay = 1;
+	var tempDate = new Date();
+	var str = '';
+	var datesHaveEvents = $('#eventDates').val();
+	var datesHLPairs = $('#eventHLPairs').val();
+	var datesPairs = $('#eventPairs').val();
+	datesPairs = datesPairs.split('||');
+	datesHLPairs = datesHLPairs.split('||');
+
+	// Requested on 2010/08/31 to show 1 nearest event day only.
+	 var ovaljor = false;	 
+	 if(checkDateRange_PrevMonth(cDate,datesHLPairs)){ovaljor = true;}
+	 
+	// 20110119 add by Justine to detect more than 5 lines [+]
+	 if (s<=5){ 
+		first_sat=6-s;
+	 } else{
+		first_sat=7;
+	}
+	// alert(Math.ceil((days-first_sat)/7)+1);
+	var Row_max = Math.ceil((days-first_sat)/7)+1;
+	//--end 20110119 add by Justine to detect more than 5 lines [-]
+
+
+	while (s>=0)
+	{
+		$('#calRow1 td:eq('+s+')').html(pdays);
+		$('#calRow1 td:eq('+s+')').removeClass();
+		$('#calRow1 td:eq('+s+')').addClass('txt_gray');
+		s--;
+		pdays--;
+	}
+	//for (var curRow=1; curRow<6; curRow++)
+	for (var curRow=1; curRow<=Row_max; curRow++) // 20110119 add by Justine to detect more than 5 lines [+]
+	{
+		if (curDay>days) break;
+		
+		if (curRow==1)
+			s = cDate.getDay();
+		else
+			s = 0;
+
+		while (s<7 && curDay<=days)
+		{
+			str = yr+','+n+','+curDay;
+			tempDate.setFullYear(yr,n,curDay);
+			$('#calRow'+curRow+' td:eq('+s+')').removeClass();
+			if((s==0||s==6)&&tempDate>d){
+				$('#calRow'+curRow+' td:eq('+s+')').html('<b>'+curDay+'</b>');
+			}else{ 
+				$('#calRow'+curRow+' td:eq('+s+')').html(curDay);
+				if(tempDate<d) $('#calRow'+curRow+' td:eq('+s+')').addClass('txt_gray');
+				//if(tempDate.getDate()==d.getDate() && tempDate.getMonth()==d.getMonth() && tempDate.getFullYear()==d.getFullYear()) $('#calRow'+curRow+' td:eq('+s+')').addClass('today2');
+			}
+			if(checkDateRange(tempDate,datesHLPairs) && tempDate>=d && !ovaljor){
+				ovaljor = true;
+				$('#calRow'+curRow+' td:eq('+s+')').addClass('today');
+				//$('#calRow'+curRow+' td:eq('+s+')').addClass('hvEvent');
+				/*$('#calRow'+curRow+' td:eq('+s+')').attr('style','cursor:hand;cursor:pointer');
+				$('#calRow'+curRow+' td:eq('+s+')').click(function() {
+				  setScrollFrame(yr+'-'+(1+n)+'-'+$(this).html().replace('<b>','').replace('</b>',''));
+				});*/
+			}
+			
+			s++;
+			curDay++;
+		}
+	}
+	// 20110119 change by Justine to detect more than 5 lines [+]
+	while (s<7 )
+	{
+		if (Row_max<6  )
+		{
+			$('#calRow5 td:eq('+s+')').html(ndays);
+			$('#calRow5 td:eq('+s+')').removeClass();
+			$('#calRow5 td:eq('+s+')').addClass('txt_gray');
+			s++;
+			ndays++;
+		} else {
+			$('#calRow6 td:eq('+s+')').html(ndays);
+			$('#calRow6 td:eq('+s+')').removeClass();
+			$('#calRow6 td:eq('+s+')').addClass('txt_gray');
+			s++;
+			ndays++;
+		}
+	}
+
+	if (Row_max<6){
+		$('#calRow6').hide();
+	} else{
+		$('#calRow6').show();
+	}
+	// 20110119 change by Justine to detect more than 5 lines [-]
+}
+
+
+function daysInMonth(iMonth, iYear)
+{
+	return 32 - new Date(iYear, iMonth, 32).getDate();
+}
+
+function getShortMonthNameEN(yr,n){
+	var mn = '';
+	switch(n)
+	{
+		case 0:
+		  mn = 'Jan '+yr;
+		  break;
+		case 1:
+		  mn = 'Feb '+yr;
+		  break;
+		case 2:
+		  mn = 'Mar '+yr;
+		  break;
+		case 3:
+		  mn = 'Apr '+yr;
+		  break;
+		case 4:
+		  mn = 'May '+yr;
+		  break;
+		case 5:
+		  mn = 'Jun '+yr;
+		  break;
+		case 6:
+		  mn = 'Jul '+yr;
+		  break;
+		case 7:
+		  mn = 'Aug '+yr;
+		  break;
+		case 8:
+		  mn = 'Sep '+yr;
+		  break;
+		case 9:
+		  mn = 'Oct '+yr;
+		  break;
+		case 10:
+		  mn = 'Nov '+yr;
+		  break;
+		default:
+		  mn = 'Dec '+yr;
+	}
+	return mn;
+}
+
+/*function getShortMonthNameTC(yr,n){
+	var mn = '';
+	switch(n)
+	{
+		case 0:
+		  mn = '一';
+		  break;
+		case 1:
+		  mn = '二';
+		  break;
+		case 2:
+		  mn = '三';
+		  break;
+		case 3:
+		  mn = '四';
+		  break;
+		case 4:
+		  mn = '五';
+		  break;
+		case 5:
+		  mn = '六';
+		  break;
+		case 6:
+		  mn = '七';
+		  break;
+		case 7:
+		  mn = '八';
+		  break;
+		case 8:
+		  mn = '九';
+		  break;
+		case 9:
+		  mn = '十';
+		  break;
+		case 10:
+		  mn = '十一';
+		  break;
+		default:
+		  mn = '十二';
+	}
+	return yr + '年 ' + mn + '月';
+}*/
+
+function getShortMonthNameTC(yr,n){
+	var mn = '';
+	switch(n)
+	{
+		case 0:
+		  mn = '1';
+		  break;
+		case 1:
+		  mn = '2';
+		  break;
+		case 2:
+		  mn = '3';
+		  break;
+		case 3:
+		  mn = '4';
+		  break;
+		case 4:
+		  mn = '5';
+		  break;
+		case 5:
+		  mn = '6';
+		  break;
+		case 6:
+		  mn = '7';
+		  break;
+		case 7:
+		  mn = '8';
+		  break;
+		case 8:
+		  mn = '9';
+		  break;
+		case 9:
+		  mn = '10';
+		  break;
+		case 10:
+		  mn = '11';
+		  break;
+		default:
+		  mn = '12';
+	}
+	return yr + '年 ' + mn + '月';
+}
+
+function getShortMonthNameSC(yr,n){
+	var mn = '';
+	switch(n)
+	{
+		case 0:
+		  mn = '1';
+		  break;
+		case 1:
+		  mn = '2';
+		  break;
+		case 2:
+		  mn = '3';
+		  break;
+		case 3:
+		  mn = '4';
+		  break;
+		case 4:
+		  mn = '5';
+		  break;
+		case 5:
+		  mn = '6';
+		  break;
+		case 6:
+		  mn = '7';
+		  break;
+		case 7:
+		  mn = '8';
+		  break;
+		case 8:
+		  mn = '9';
+		  break;
+		case 9:
+		  mn = '10';
+		  break;
+		case 10:
+		  mn = '11';
+		  break;
+		default:
+		  mn = '12';
+	}
+	return yr + '年 ' + mn + '月';
+}
+
+
+function fn(obj, s1, s2){
+	obj.src = obj.src.replace(s2+'.gif', s1+'.gif' );
+}
