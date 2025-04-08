@@ -16,3 +16,10 @@ pybabel compile -d translations
 cd app/
 pybabel update -i translations/messages.pot -d translations
 ```
+
+
+flask db init 
+flask db migrate -m "#comment"
+flask db upgrade
+
+flask --debug run --host=0.0.0.0
