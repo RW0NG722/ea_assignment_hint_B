@@ -119,3 +119,34 @@ class TradingItem(db.Model):
     time = db.Column(db.DateTime, default=datetime.utcnow)
     type_id = db.Column(db.Integer, db.ForeignKey('tradingtype.id'))
     imgurl = db.Column(db.String(1000))
+
+class Event(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    event_date = db.Column(db.DateTime, nullable=False)
+    location = db.Column(db.String(100), nullable=True)
+
+class News(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    published_date = db.Column(db.DateTime, nullable=False)
+
+class Announcement(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    announcement_date = db.Column(db.DateTime, nullable=False)
+
+class Resource(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=True)
+    url = db.Column(db.String(200), nullable=False)
+
+class Feedback(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    feedback_date = db.Column(db.DateTime, nullable=False)
