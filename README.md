@@ -20,6 +20,8 @@ cd app/
 pybabel update -i translations/messages.pot -d translations
 ```
 
+AWS Cloud9
+
 
 flask db init 
 flask db migrate -m "#comment"
