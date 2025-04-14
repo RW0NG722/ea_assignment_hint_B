@@ -23,6 +23,10 @@
     "8025": {
       "label": "mailhog",
       "onAutoForward": "openPreview"
+    },
+    "8081": {
+      "label": "mailhog",
+      "onAutoForward": "openPreview"
     }
   },
   "customizations": {

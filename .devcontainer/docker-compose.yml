@@ -17,6 +17,19 @@ services:
       - "5000:5000" # app port
       - "5001:5001" # app(debug) port
       - "3000:3000" # remote debugger attach port
+      
+
+  visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - 8081:8080
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - flask_app
 
   postgresdb:
     container_name: postgres_container
