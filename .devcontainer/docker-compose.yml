@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  app1:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -14,10 +14,26 @@ services:
     networks:
       - flask_app
     ports:
-      - "5000:5000" # app port
-      - "5001:5001" # app(debug) port
+      - "5000:5000" # app1 port
+      - "5001:5001" # app1 debug port
       - "3000:3000" # remote debugger attach port
-      
+
+  app2:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        VARIANT: "3"
+        NODE_VERSION: "none"
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    networks:
+      - flask_app
+    ports:
+      - "6000:5000" # app2 port
+      - "6001:5001" # app2 debug port
+      - "4000:3000" # remote debugger attach port
 
   visualizer:
     image: dockersamples/visualizer:stable
