@@ -222,6 +222,19 @@ def ivesubject():
         
     return render_template('ivesubject.html.j2', title=_('Subject'),form=form) 
 
+@app.route('/ivedisciplines_and_programmes', methods=['GET', 'POST'])
+@login_required
+def ivedisciplines_and_programmes():  # 修改函數名稱
+    form = SubjectForm()
+    if form.validate_on_submit():
+        current_user.subject1 = form.Subject1.data
+        current_user.subject2 = form.Subject2.data
+        current_user.subject3 = form.Subject3.data
+        db.session.commit()
+        flash(_('Subject inputed!'))
+        
+    return render_template('ivedisciplines_and_programmes.html.j2', title=_('Subject'), form=form)
+
 @app.route("/set")
 def setcookie():
     resp = make_response('Setting cookie!')
