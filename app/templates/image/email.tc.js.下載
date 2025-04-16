@@ -1,0 +1,194 @@
+﻿function emailCheck (emailStr) {
+
+  var checkTLD=1;
+  var knownDomsPat=/^(com|net|org|edu|int|mil|gov|arpa|biz|aero|name|coop|info|pro|museum)$/;
+  var emailPat=/^(.+)@(.+)$/;
+  var specialChars="\\(\\)><@,;:\\\\\\\"\\.\\[\\]";
+  var validChars="\[^\\s" + specialChars + "\]";
+  var quotedUser="(\"[^\"]*\")";
+  var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/;
+  var atom=validChars + '+';
+  var word="(" + atom + "|" + quotedUser + ")";
+  var userPat=new RegExp("^" + word + "(\\." + word + ")*$");
+  var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$");
+  var matchArray=emailStr.match(emailPat);
+
+  if (matchArray==null) {
+    return false;
+  }
+
+  var user=matchArray[1];
+  var domain=matchArray[2];
+
+  for (i=0; i<user.length; i++) {
+    if (user.charCodeAt(i)>127) {
+      return false;
+    }
+  }
+
+  for (i=0; i<domain.length; i++) {
+    if (domain.charCodeAt(i)>127) {
+      return false;
+    }
+  }
+
+  if (user.match(userPat)==null) {
+    return false;
+  }
+
+  var IPArray=domain.match(ipDomainPat);
+  if (IPArray!=null) {
+
+    for (var i=1;i<=4;i++) {
+     if (IPArray[i]>255) {
+       return false;
+     }
+   }
+  return true;
+  }
+
+  var atomPat=new RegExp("^" + atom + "$");
+  var domArr=domain.split(".");
+  var len=domArr.length;
+
+  for (i=0;i<len;i++) {
+    if (domArr[i].search(atomPat)==-1) {
+      return false;
+    }
+  }
+
+  if (checkTLD && domArr[domArr.length-1].length!=2 && domArr[domArr.length-1].search(knownDomsPat)==-1) {
+    return false;
+  }
+
+  if (len<2) {
+    return false;
+  }
+  return true;
+}
+
+
+function sendMailToFriend()
+{
+		document.getElementById("innerContent").style.display="none";
+		document.getElementById("emailToFriend").style.display="";
+		document.getElementById("sendEmail").style.display="";
+		document.getElementById("sendPreview").style.display="none";
+		
+}
+
+
+function previewMail()
+{
+	/* var passV = 1;
+	var error_msg = "";
+	var sharing = document.location.href;
+
+	if (document.getElementById("sender_name").value == ""){
+		error_msg = error_msg + "請輸入您的姓名\n";
+		passV = 0;
+	}
+	if (document.getElementById("sender_mail").value == ""){
+		error_msg = error_msg + "請輸入您的電郵地址\n";
+		passV = 0;
+	}
+	if(document.getElementById("sender_mail").value.length>0 && !emailCheck(document.getElementById("sender_mail").value) ){
+		error_msg = error_msg + "請輸入有效的電郵地址\n";
+		passV = 0;
+	}
+	if (document.getElementById("subject").value == ""){
+		error_msg = error_msg + "請輸入標題\n";
+		passV = 0;
+	}
+	if (document.getElementById("recipient_name1").value == "" && document.getElementById("recipient_name2").value == "" && document.getElementById("recipient_name3").value == "")
+	{
+		error_msg = error_msg + "請輸入收件人名稱\n";
+		passV = 0;
+	}
+	
+	if (document.getElementById("recipient_name1").value != "")
+	{
+		if (document.getElementById("recipient_email1").value != "")
+		{
+			if(document.getElementById("recipient_email1").value.length>0 && !emailCheck(document.getElementById("recipient_email1").value) ){
+				error_msg = error_msg + "請輸入有效的電郵地址\n";
+				passV = 0;
+			}
+		}
+	}
+	
+	if (document.getElementById("recipient_name2").value != "")
+	{
+		if (document.getElementById("recipient_email2").value != "")
+		{
+			if(document.getElementById("recipient_email2").value.length>0 && !emailCheck(document.getElementById("recipient_email2").value) ){
+				error_msg = error_msg + "請輸入請輸入有效的電郵地址\n";
+				passV = 0;
+			}
+		}
+	}
+	if (document.getElementById("recipient_name3").value != "")
+	{
+		if (document.getElementById("recipient_email3").value != "")
+		{
+			if(document.getElementById("recipient_email3").value.length>0 && !emailCheck(document.getElementById("recipient_email3").value) ){
+				error_msg = error_msg + "請輸入請輸入有效的電郵地址\n";
+				passV = 0;
+			}
+		}
+	}
+	
+	
+
+
+	
+	if (document.getElementById("recipient_email1").value == "" && document.getElementById("recipient_email2").value == "" && document.getElementById("recipient_email3").value == "")
+	{
+		error_msg = error_msg + "請輸入收件人電郵地址\n";
+		passV = 0;
+	}
+	if (passV == 0) {
+
+	alert("資料輸入不正確\n\n" + 
+		     "請輸入以下資料：\n\n" + 
+		      error_msg + "\n");
+
+	} else {
+		document.getElementById("pre_sender_name").innerHTML =document.getElementById("sender_name").value;
+		document.getElementById("pre_sender_mail").innerHTML =document.getElementById("sender_mail").value;
+		document.getElementById("pre_lab_senderName").innerHTML =document.getElementById("sender_name").value;
+		document.getElementById("pre_lab_senderMail").innerHTML =document.getElementById("sender_mail").value;
+		document.getElementById("pre_subject").innerHTML =document.getElementById("subject").value;
+		document.getElementById("pre_recipient_name1").innerHTML =document.getElementById("recipient_name1").value;
+		document.getElementById("pre_recipient_email1").innerHTML =document.getElementById("recipient_email1").value;		
+		document.getElementById("pre_recipient_name2").innerHTML =document.getElementById("recipient_name2").value;
+		document.getElementById("pre_recipient_email2").innerHTML =document.getElementById("recipient_email2").value;		
+		document.getElementById("pre_recipient_name3").innerHTML =document.getElementById("recipient_name3").value;
+		document.getElementById("pre_recipient_email3").innerHTML =document.getElementById("recipient_email3").value;		
+		document.getElementById("pre_link").innerHTML = sharing;				
+		document.getElementById("pre_link_url").href = sharing;		
+		document.getElementById("hid_link").value = sharing;		
+		document.getElementById("hid_sender_name").value =document.getElementById("sender_name").value;
+		document.getElementById("hid_sender_mail").value =document.getElementById("sender_mail").value;
+		document.getElementById("hid_subject").value =document.getElementById("subject").value;
+		document.getElementById("hid_recipient_name1").value =document.getElementById("recipient_name1").value;
+		document.getElementById("hid_recipient_email1").value =document.getElementById("recipient_email1").value;		
+		document.getElementById("hid_recipient_name2").value =document.getElementById("recipient_name2").value;
+		document.getElementById("hid_recipient_email2").value =document.getElementById("recipient_email2").value;		
+		document.getElementById("hid_recipient_name3").value =document.getElementById("recipient_name3").value;
+		document.getElementById("hid_recipient_email3").value =document.getElementById("recipient_email3").value;
+		var receive1=0;
+			if ($('#receive:checked').val() !== undefined) {  
+				// Insert code here.
+				receive1=1;
+			}
+		document.getElementById("hid_receive").value =receive1;				
+		//document.getElementById("hid_receive").value =document.getElementById("receive").value;	
+		document.getElementById("innerContent1").style.display="none";
+		document.getElementById("emailToFriend").style.display="";
+		document.getElementById("sendEmail").style.display="none";
+		document.getElementById("sendPreview").style.display="";
+		
+	} */
+	
+}
