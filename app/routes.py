@@ -220,7 +220,20 @@ def ivesubject():
         db.session.commit()
         flash(_('Subject inputed!'))
         
-    return render_template('ivesubject.html.j2', title=_('Subject'),form=form) 
+    return render_template('ivesubject.html.j2', title=_('Subject'),form=form)
+
+@app.route('/ivedis_and_pro', methods=['GET', 'POST'])
+@login_required
+def ivedis_and_pro():
+    form = SubjectForm()
+    if form.validate_on_submit():
+        current_user.subject1 = form.Subject1.data
+        current_user.subject2 = form.Subject2.data
+        current_user.subject3 = form.Subject3.data
+        db.session.commit()
+        flash(_('Subject inputed!'))
+        
+    return render_template('ivedis_and_pro.html.j2', title=_('Subject'),form=form)
 
 @app.route("/set")
 def setcookie():
