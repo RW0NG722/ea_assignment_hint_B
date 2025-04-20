@@ -24,8 +24,8 @@
       "label": "mailhog",
       "onAutoForward": "openPreview"
     },
-    "8081": {
-      "label": "mailhog",
+    "8080": {
+      "label": "visualizer",
       "onAutoForward": "openPreview"
     }
   },
@@ -63,7 +63,8 @@
   "forwardPorts": [
     5000,
     5050,
-    8025
+    8025,
+    8080
   ],
   "features": {
     "ghcr.io/devcontainers/features/docker-from-docker:1": {}

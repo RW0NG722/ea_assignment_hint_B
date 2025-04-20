@@ -19,6 +19,9 @@ def before_request():
     g.locale = str(get_locale())
 
 
+
+
+
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
@@ -249,7 +252,15 @@ def getcookie():
         return f'Cookie value: {framework}'
     else:
         return 'No cookie found'
-   
+
+@app.after_request
+def apply_cookies(response):
+    framework = request.cookies.get('framework')
+    if framework:
+        flash('Cookie value: {}'.format(framework))
+    else:
+        flash(_('No cookie'))
+    return response
  
 # 3.刪除Cookie
 @app.route('/del')
@@ -259,4 +270,5 @@ def del_cookie():
     return res
 
 
-         
+
+
