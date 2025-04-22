@@ -14,14 +14,11 @@ pybabel init -i translations/messages.pot -d translations -l en
 pybabel init -i translations/messages.pot -d translations -l es
 pybabel init -i translations/messages.pot -d translations -l zh
 pybabel compile -d translations
-```
-
-# How to update translation
-```
 cd app/
 pybabel update -i translations/messages.pot -d translations
 ```
 
+# How to Use it
 AWS Cloud9
 
 
