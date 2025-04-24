@@ -53,15 +53,15 @@ flask --debug run --host=0.0.0.0
 
 3.pull docker image,install requirements.txt
 
-[4.open](http://4.open) ports
+4. open ports
 
-[5.run](http://5.run) docker
+5. run docker
 
 # Deploy to GCP(GKE)
 
 1.Use kompose to convert Docker Compose to Kubernetes file
 
-[2.Open](http://2.Open) a cluster,use cloud shell to deploy 
+2. open a cluster,use cloud shell to deploy 
 
 ?Source code to GitHub for Version Control?
 
