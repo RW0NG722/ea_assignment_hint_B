@@ -210,7 +210,7 @@ def trading():
 def iveindex():
     
         
-    return render_template('iveindex.html.j2', title=_('Register')) 
+    return render_template('iveindex.html.j2', title=_('香港專業教育學院')) 
 
 @app.route('/ivesubject', methods=['GET', 'POST'])
 @login_required
@@ -236,7 +236,7 @@ def ivedis_and_pro():
         db.session.commit()
         flash(_('Subject inputed!'))
         
-    return render_template('ivedis_and_pro.html.j2', title=_('Subject'),form=form)
+    return render_template('ivedis_and_pro.html.j2', title=_('學科及課程'),form=form)
 
 @app.route("/set")
 def setcookie():
