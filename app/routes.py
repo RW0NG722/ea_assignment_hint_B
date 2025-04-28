@@ -238,6 +238,19 @@ def ivedis_and_pro():
         
     return render_template('ivedis_and_pro.html.j2', title=_('學科及課程'),form=form)
 
+@app.route('/sw_overview', methods=['GET', 'POST'])
+@login_required
+def sw_overview():
+    form = SubjectForm()
+    if form.validate_on_submit():
+        current_user.subject1 = form.Subject1.data
+        current_user.subject2 = form.Subject2.data
+        current_user.subject3 = form.Subject3.data
+        db.session.commit()
+        flash(_('Subject inputed!'))
+        
+    return render_template('sw_overview.html.j2', title=_('學生發展'),form=form)
+
 @app.route("/set")
 def setcookie():
     resp = make_response('Setting cookie!')
