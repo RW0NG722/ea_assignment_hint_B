@@ -151,4 +151,19 @@ class Feedback(db.Model):
     content = db.Column(db.Text, nullable=False)
     feedback_date = db.Column(db.DateTime, nullable=False)
 
+class UserFollow(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    follower_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
+    follower_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
+    follower_date = db.Column(db.DateTime,nullable=False, default=datetime.utcnow)
 
+class Like(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), nullable=False)
+    like_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False, unique=True)  # Fixed db.Column
+    product_count = db.Column(db.Integer, nullable=False, default=0)  # Fixed typo in 'default'
