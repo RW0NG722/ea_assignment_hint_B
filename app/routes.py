@@ -7,7 +7,7 @@ from flask_babel import _, get_locale
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm, \
     ResetPasswordRequestForm, ResetPasswordForm,TradingForm,SubjectForm
-from app.models import User, Post, TradingType
+from app.models import User, Post
 from app.email import send_password_reset_email
 
 

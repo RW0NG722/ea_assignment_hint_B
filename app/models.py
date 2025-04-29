@@ -101,24 +101,6 @@ class Post(db.Model):
         return f'<Post {self.body}>'
 
 
-class TradingType(db.Model):
-    __tablename__ = 'tradingtype'
-    
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-    item = db.relationship('TradingItem', backref='type', lazy=True)
-
-class TradingItem(db.Model):
-    __tablename__ = 'tradingitem'
-
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
-    description = db.Column(db.String(1000))
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    price = db.Column(db.Integer)
-    time = db.Column(db.DateTime, default=datetime.utcnow)
-    type_id = db.Column(db.Integer, db.ForeignKey('tradingtype.id'))
-    imgurl = db.Column(db.String(1000))
 
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
