@@ -150,3 +150,5 @@ class Feedback(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     content = db.Column(db.Text, nullable=False)
     feedback_date = db.Column(db.DateTime, nullable=False)
+
+
