@@ -126,30 +126,40 @@ class Event(db.Model):
     description = db.Column(db.Text, nullable=True)
     event_date = db.Column(db.DateTime, nullable=False)
     location = db.Column(db.String(100), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='events', lazy=True)
 
 class News(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     published_date = db.Column(db.DateTime, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='news', lazy=True)
 
 class Announcement(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     content = db.Column(db.Text, nullable=False)
     announcement_date = db.Column(db.DateTime, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='announcements', lazy=True)
 
 class Resource(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     description = db.Column(db.Text, nullable=True)
     url = db.Column(db.String(200), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user = db.relationship('User', backref='resources', lazy=True)
 
 class Feedback(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     content = db.Column(db.Text, nullable=False)
     feedback_date = db.Column(db.DateTime, nullable=False)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.id'), nullable=True)
+    event = db.relationship('Event', backref='feedbacks', lazy=True)
 
 class UserFollow(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -165,5 +175,5 @@ class Like(db.Model):
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False, unique=True)  # Fixed db.Column
-    product_count = db.Column(db.Integer, nullable=False, default=0)  # Fixed typo in 'default'
+    name = db.Column(db.String(50), nullable=False, unique=True)
+    product_count = db.Column(db.Integer, nullable=False, default=0)
